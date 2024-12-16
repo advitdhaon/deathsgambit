@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Detective</title>
+    <style>
+        body {
+            background-color: black;
+            background-image: url('https://img.freepik.com/premium-photo/isolated-natural-white-snow-texture-effect-black-night-background_231311-5375.jpg?semt=ais_hybrid'); 
+            color: #00FF00; 
+            font-family: 'Courier New', Courier, monospace; 
+            font-size: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #text {
+            white-space: pre-wrap;
+        }
+
+        a {
+            color: #00FF00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="text"></div>
+
+    <script>
+        const text = "Hello Detective \nWant to Continue?";
+        let i = 0;
+        const textElement = document.getElementById('text');
+
+        function typeWriter() {
+            if (i < text.length) {
+                if (text.charAt(i) === '\n') {
+                    textElement.innerHTML += '<br>';
+                } else if (text.charAt(i) === 'C') { 
+                    textElement.innerHTML += '<a href="bablu.htm" target="_blank">Want to play a game?</a>';
+                    i += 'Want to play a game?'.length;
+                    return;
+                } else {
+                    textElement.innerHTML += text.charAt(i);
+                }
+                i++;
+                setTimeout(typeWriter, 150); 
+            }
+        }
+
+        typeWriter(); 
+    </script>
+</body>
+</html>
